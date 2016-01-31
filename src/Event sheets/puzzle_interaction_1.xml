@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>puzzle_interaction_1</name>
+    <events>
+        <variable constant="0" name="ritual_won" sid="4737368907544763" static="0" type="number">0</variable>
+        <variable constant="0" name="current_time" sid="6217516690991883" static="0" type="number">10</variable>
+        <variable constant="0" name="total_red" sid="7889352303037367" static="0" type="number">0</variable>
+        <variable constant="0" name="status" sid="1027200373068096" static="0" type="number">3</variable>
+        <variable constant="0" name="shuffle_puzzle" sid="1737047559471053" static="0" type="number">0</variable>
+        <variable constant="0" name="wins" sid="8759801001316776" static="0" type="number">0</variable>
+        <event-block sid="5531858558561568">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="8540841138864514" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="2624080949317247" type="System">
+                    <param id="0" name="Variable">wins</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="5672487822321012" type="System">
+                    <param id="0" name="Variable">current_time</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Set text" sid="3843139794265308" type="time_remaining">
+                    <param id="0" name="Text">&quot;Time remaining: &quot; &amp; current_time</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6538812184063271">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="8646549898231731" type="System" />
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="3012606976688612" type="puzzle_memories">
+                    <param id="0" name="Frame number">random(0,11)</param>
+                </action>
+                <action id="-9" name="Set value" sid="8686246144179381" type="System">
+                    <param id="0" name="Variable">status</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="2479114220537793" type="System">
+                    <param id="0" name="Variable">shuffle_puzzle</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="613175202414973" type="System">
+                    <param id="0" name="Seconds">0.5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7399533758060971">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="491033451045386" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">puzzle_memories</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="8022013889012815" type="System">
+                    <param id="0" name="Variable">shuffle_puzzle</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="5978808114208791" type="puzzle_memories">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="-11" name="Subtract from" sid="5737273089706435" type="System">
+                    <param id="0" name="Variable">total_red</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6510834331759452">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="4660889440523016" type="System">
+                    <param id="0" name="Variable">wins</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="452289032093574" type="ritual_complete">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action behavior="Fade" id="1" name="Start fade" sid="3219787080378553" type="puzzle_memories" />
+                <action id="-16" name="Wait" sid="4381698109464101" type="System">
+                    <param id="0" name="Seconds">3.0</param>
+                </action>
+                <action id="-9" name="Set value" sid="8809018588159147" type="System">
+                    <param id="0" name="Variable">shuffle_puzzle</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="6145990568598593" type="System">
+                    <param id="0" name="Variable">current_time</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="-9" name="Set value" sid="8218801743312472" type="System">
+                    <param id="0" name="Variable">status</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+                <action id="-9" name="Set value" sid="4598710039155077" type="System">
+                    <param id="0" name="Variable">wins</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="4883720977476887" type="System">
+                    <param id="0" name="Variable">total_red</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+                <action id="-9" name="Set value" sid="1592953056847319" type="System">
+                    <param id="0" name="Variable">ritual_won</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="6901278749303989" type="System">
+                    <param id="0" name="Layout">level_1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3426649365777813">
+            <conditions>
+                <condition id="-11" name="For Each" sid="1917564849671648" type="System">
+                    <param id="0" name="Object">puzzle_memories</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="5667148773026755" type="System">
+                    <param id="0" name="Variable">shuffle_puzzle</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="9028475933490025" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="5931317547043314">
+                    <conditions>
+                        <condition id="3" name="Compare frame" sid="4410572944140667" type="puzzle_memories">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="3986680023170984" type="System">
+                            <param id="0" name="Variable">total_red</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="3881090520079767">
+            <conditions>
+                <condition id="-11" name="For Each" sid="8025279673659012" type="System">
+                    <param id="0" name="Object">puzzle_memories</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="294743981660284" type="System">
+                    <param id="0" name="Variable">shuffle_puzzle</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="8755189936588069" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="8733872616035058">
+                    <conditions>
+                        <condition id="3" name="Compare frame" sid="6364815069217377" type="puzzle_memories">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="4963413052338444" type="System">
+                            <param id="0" name="Variable">total_red</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="3006921049938049">
+            <conditions>
+                <condition id="-11" name="For Each" sid="1496288541070296" type="System">
+                    <param id="0" name="Object">puzzle_memories</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="2679291498132817" type="System">
+                    <param id="0" name="Variable">shuffle_puzzle</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="9524212913994178" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="5872669807770729">
+                    <conditions>
+                        <condition id="3" name="Compare frame" sid="8398543079272261" type="puzzle_memories">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">9</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="3571322831161635" type="System">
+                            <param id="0" name="Variable">total_red</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="2237239739316641">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="7676298293138062" type="System">
+                    <param id="0" name="Variable">shuffle_puzzle</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="3546264952901915" type="System">
+                    <param id="0" name="Variable">shuffle_puzzle</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5502747547329656">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="2547321343815295" type="System">
+                    <param id="0" name="Variable">total_red</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="363272821955564" type="System">
+                    <param id="0" name="Variable">shuffle_puzzle</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="9538920333016656" type="System">
+                    <param id="0" name="Variable">wins</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="9200856859523825" type="System">
+                    <param id="0" name="Variable">wins</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="5" name="Set frame" sid="2818951204270992" type="puzzle_memories">
+                    <param id="0" name="Frame number">random(0,11)</param>
+                </action>
+                <action id="0" name="Set text" sid="8311852035914141" type="running_score">
+                    <param id="0" name="Text">&quot;Current score: &quot; &amp; wins</param>
+                </action>
+                <action id="-9" name="Set value" sid="7979280467887948" type="System">
+                    <param id="0" name="Variable">shuffle_puzzle</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7817387461800997">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="5226560714584298" type="System">
+                    <param id="0" name="Variable">current_time</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="3717595840549076" type="System">
+                    <param id="0" name="Variable">shuffle_puzzle</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="6046570322683681" type="ritual_complete">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="0" name="Set text" sid="4605776423235093" type="ritual_complete">
+                    <param id="0" name="Text">&quot;Ritual failed&quot;</param>
+                </action>
+                <action behavior="Fade" id="1" name="Start fade" sid="1976991840900185" type="puzzle_memories" />
+                <action id="-16" name="Wait" sid="5280466923114325" type="System">
+                    <param id="0" name="Seconds">3.0</param>
+                </action>
+                <action id="-9" name="Set value" sid="7201202555734893" type="System">
+                    <param id="0" name="Variable">shuffle_puzzle</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="9024047279033082" type="System">
+                    <param id="0" name="Variable">current_time</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="-9" name="Set value" sid="5016161291966716" type="System">
+                    <param id="0" name="Variable">status</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+                <action id="-9" name="Set value" sid="796232236014713" type="System">
+                    <param id="0" name="Variable">wins</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="8438250336964699" type="System">
+                    <param id="0" name="Variable">total_red</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+                <action id="-11" name="Subtract from" sid="9598898658744623" type="System">
+                    <param id="0" name="Variable">faith_score</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="89729270355023" type="System">
+                    <param id="0" name="Layout">level_1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

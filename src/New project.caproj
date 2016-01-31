@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>New project</name>
+    <description></description>
+    <version>1.0</version>
+    <author></author>
+    <author-email></author-email>
+    <author-website></author-website>
+    <app-id></app-id>
+    <unique-id>3phjf8c2bcezm</unique-id>
+    <saved-with-version>22100</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
+        <behavior author="Scirra" id="Persist" version="1">Persist</behavior>
+        <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
+        <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
+        <behavior author="Scirra" id="jumpthru" version="1">Jump-thru</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>640</width>
+        <height>480</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Hide address bar">No</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Preview browser">Chrome</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use iOS retina display">All devices</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="BackgroundTile" sid="6065750806764422">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="Player" sid="219292247032046">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Platform" sid="7355935378485127">
+                    <behavior id="Platform" />
+                </behavior-type>
+                <behavior-type name="ScrollTo" sid="3469621315920293">
+                    <behavior id="scrollto" />
+                </behavior-type>
+                <behavior-type name="Persist" sid="999857171926522">
+                    <behavior id="Persist" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3069008925255259" speed="5">
+                    <frame duration="1" hotspotX="0.46875" hotspotY="0.5" original-source="C:\Users\Donald Hanson II\Desktop\Projects\GameJam\src\assets\Preist.png">
+                        <image-point name="head" x="0.5" y="0.125" />
+                        <collision-poly>
+                            <point x="0.28125" y="0.28125" />
+                            <point x="0.5" y="0.0625" />
+                            <point x="0.59375" y="0.40625" />
+                            <point x="0.65625" y="0.5" />
+                            <point x="0.71875" y="0.71875" />
+                            <point x="0.5" y="1" />
+                            <point x="0.25" y="0.75" />
+                            <point x="0.25" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SolidTile" sid="1716009186936396">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Solid" sid="201081528212924">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+        <object-type name="MovingSolidTile" sid="9151503753734048">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Solid" sid="7003713697621752">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="Sine" sid="2042461230713194">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+        <object-type name="JumpThruTile" sid="3922610638617988">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Jumpthru" sid="2336516385628228">
+                    <behavior id="jumpthru" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+        <object-type name="Keyboard" sid="4633348126946699">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="Text" sid="133360786044789">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="villager" sid="9983381971215147">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="9961332729475337">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9094278554990201" speed="5">
+                    <frame duration="1" hotspotX="0.75" hotspotY="0.46875" original-source="C:\Users\Donald Hanson II\Desktop\Projects\GameJam\src\assets\Villager 1.png">
+                        <image-point name="head" x="0.46875" y="0.0625" />
+                        <collision-poly>
+                            <point x="0.168" y="0.115942" />
+                            <point x="0.768" y="0.00483092" />
+                            <point x="0.864" y="0.922705" />
+                            <point x="0.172" y="1" />
+                            <point x="0.024" y="0.52657" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="shadow" sid="4948568047448753">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Fade" sid="6494908577744418">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3815867224844944" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Donald Hanson II\Desktop\Projects\GameJam\src\assets\Shadow.png">
+                        <image-point name="head" x="0.40625" y="0.296875" />
+                        <collision-poly>
+                            <point x="0.1875" y="0.1875" />
+                            <point x="0.5" y="0.09375" />
+                            <point x="0.5625" y="0.4375" />
+                            <point x="0.625" y="0.5" />
+                            <point x="0.8125" y="0.8125" />
+                            <point x="0.5" y="0.90625" />
+                            <point x="0.25" y="0.75" />
+                            <point x="0.15625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="exit" sid="4873708576632033">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8482066799606749" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SolidTile2" sid="1652911392697292">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Solid" sid="4919730562957368">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+        <object-type name="Sprite" sid="9355096251283781">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7282107146739232" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Donald Hanson II\Desktop\Projects\GameJam\src\assets\Final Boss 2 .png">
+                        <collision-poly>
+                            <point x="0.28125" y="0.28125" />
+                            <point x="0.5" y="0.03125" />
+                            <point x="0.6875" y="0.3125" />
+                            <point x="0.71875" y="0.5" />
+                            <point x="0.90625" y="0.90625" />
+                            <point x="0.5" y="1" />
+                            <point x="0.0625" y="0.9375" />
+                            <point x="0.25" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="puzzle_memories" sid="5030136281792066">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="bad_mem" sid="757169923331116" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Fade" sid="8721137215776301">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="10" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1930711948377567" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="guess_text" sid="4513646486912102">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="guess_text_box" sid="6015214604308372">
+            <plugin id="TextBox" />
+        </object-type>
+        <object-type name="prompt_1" sid="2665496432867921">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="player_prompt" sid="5998093474787267">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="splash_background" sid="3060823304957678">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8605749577965909" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="splash_text" sid="1964856384214025">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="promptfor_enter" sid="3664408512018693">
+            <plugin id="Text" />
+            <behaviors>
+                <behavior-type name="Fade" sid="4313475026511225">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+        </object-type>
+        <object-type name="puzzle_memories2" sid="671054308279876">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="13" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6379764173239815" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Mouse" sid="7693445045572495">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="ritual_complete" sid="4875167368248856">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="running_score" sid="304644250464257">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="time_remaining" sid="4241573582697015">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="try_solution" sid="3507564285576971">
+            <plugin id="Text" />
+        </object-type>
+        <object-type global="1" name="question_array" sid="5624097412013668">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="Function" sid="8463189073447688">
+            <plugin id="Function" />
+        </object-type>
+        <object-type global="1" name="alpha_bet" sid="2805742864973855">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="prompt_2" sid="6102310749334655">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="prompt_3" sid="9449474039688343">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="prompt_4" sid="7962632543321888">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="prompt_5" sid="6733048015536456">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="faith_hp" sid="3388558183879828">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="house" sid="7067507114583664">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7381082773092867" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Donald Hanson II\Desktop\Projects\GameJam\src\assets\House 1.png">
+                        <collision-poly>
+                            <point x="0.21875" y="0.21875" />
+                            <point x="0.78125" y="0.21875" />
+                            <point x="0.90625" y="0.5" />
+                            <point x="0.8125" y="0.8125" />
+                            <point x="0.1875" y="0.8125" />
+                            <point x="0.0625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="house_2" sid="4412734569003936">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5658218997809931" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Donald Hanson II\Desktop\Projects\GameJam\src\assets\House 1.png">
+                        <collision-poly>
+                            <point x="0.21875" y="0.21875" />
+                            <point x="0.78125" y="0.21875" />
+                            <point x="0.90625" y="0.5" />
+                            <point x="0.8125" y="0.8125" />
+                            <point x="0.1875" y="0.8125" />
+                            <point x="0.0625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="faith_obj" sid="2235685640048991">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="3524509669580723">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5286068847133829" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+    </object-folder>
+    <families />
+    <layout-folder>
+        <layout>level_1.xml</layout>
+        <layout>splash_1.xml</layout>
+        <layout>splash_2.xml</layout>
+        <layout>splash_3.xml</layout>
+        <layout>splash_4.xml</layout>
+        <layout>puzzle_1.xml</layout>
+        <layout>puzzle_2.xml</layout>
+        <layout>puzzle_3.xml</layout>
+        <layout>level_2.xml</layout>
+        <layout>level_3.xml</layout>
+        <layout>level_4.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>level_interaction.xml</event-sheet>
+        <event-sheet>splash_interaction.xml</event-sheet>
+        <event-sheet>splash_2_interaction.xml</event-sheet>
+        <event-sheet>splash_3_interaction.xml</event-sheet>
+        <event-sheet>splash_4_interaction.xml</event-sheet>
+        <event-sheet>puzzle_interaction_1.xml</event-sheet>
+        <event-sheet>puzzle_interaction_2.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Keyboard" uid="20" />
+        <global-instance type="Mouse" uid="128" />
+        <global-instance type="Function" uid="134" />
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

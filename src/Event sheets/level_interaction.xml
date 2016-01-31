@@ -1,0 +1,1275 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>level_interaction</name>
+    <events>
+        <variable constant="0" name="current_level" sid="6954070188509127" static="0" type="number">1</variable>
+        <variable constant="0" name="current_interaction" sid="343040839530358" static="0" type="number">0</variable>
+        <variable constant="0" name="talking" sid="5348301564563861" static="0" type="number">0</variable>
+        <variable constant="0" name="faith_score" sid="4810409882080582" static="0" type="number">2</variable>
+        <comment>Use the down arrow to allow the player to deliberately drop down through a jump-thru platform.</comment>
+        <event-block sid="7802926493567648">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="5838252815512118" type="Keyboard">
+                    <param id="0" name="Key">40 (Down arrow)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="12" name="Fall through" sid="7147603063228612" type="Player" />
+            </actions>
+        </event-block>
+        <comment>Allow WASD as alternate controls to arrow keys.</comment>
+        <event-block sid="2963579018774011">
+            <conditions>
+                <condition id="2" name="Key is down" sid="1702195088193519" type="Keyboard">
+                    <param id="0" name="Key">87 (W)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="9093505414188624" type="Player">
+                    <param id="0" name="Control">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5731036569467632">
+            <conditions>
+                <condition id="2" name="Key is down" sid="5099825343035253" type="Keyboard">
+                    <param id="0" name="Key">65 (A)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="7113803617656572" type="Player">
+                    <param id="0" name="Control">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7840515326911244">
+            <conditions>
+                <condition id="2" name="Key is down" sid="9428780484665997" type="Keyboard">
+                    <param id="0" name="Key">83 (S)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="12" name="Fall through" sid="8510009807510992" type="Player" />
+            </actions>
+        </event-block>
+        <event-block sid="7950543158138285">
+            <conditions>
+                <condition id="2" name="Key is down" sid="1374859056940826" type="Keyboard">
+                    <param id="0" name="Key">68 (D)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="9888973765978333" type="Player">
+                    <param id="0" name="Control">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Mirror the player&apos;s image so they appear facing the right way when moving left or right.</comment>
+        <event-block any="1" sid="3148548450940749">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="986003859024089" type="Keyboard">
+                    <param id="0" name="Key">37 (Left arrow)</param>
+                </condition>
+                <condition id="0" name="On key pressed" sid="1750420725796954" type="Keyboard">
+                    <param id="0" name="Key">65 (A)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="4327012471008229" type="Player">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block any="1" sid="7995270106884593">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="2985207996200784" type="Keyboard">
+                    <param id="0" name="Key">39 (Right arrow)</param>
+                </condition>
+                <condition id="0" name="On key pressed" sid="3747564385182957" type="Keyboard">
+                    <param id="0" name="Key">68 (D)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Set mirrored" sid="8167430892998742" type="Player">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>If the player falls off the bottom of the layout, restart the level.</comment>
+        <event-block sid="7505216744621281">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="9472494487507654" type="Player">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Y co-ordinate">LayoutHeight</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="2424115481036141" type="System" />
+            </actions>
+        </event-block>
+        <event-block sid="7830866713649555">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="8313454422550447" type="Player">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="X co-ordinate">villager.x -200</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="8315761329535199" type="Player">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="X co-ordinate">villager.x + 40</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="1709616238214835" type="prompt_1">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7171527675611276">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="8768625589259386" type="Player">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="X co-ordinate">villager.x -200</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="3915008048977015" type="Player">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="X co-ordinate">villager.x + 40</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="5850983368134086" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="4720899528744665" type="prompt_3">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7941708235606422">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="7351629476767335" type="Player">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="X co-ordinate">villager.x -200</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="8703059773903294" type="Player">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="X co-ordinate">villager.x + 40</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="1632160489905153" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="5938874452197527" type="prompt_4">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6773590714755816">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="3316022841215951" type="Player">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="X co-ordinate">villager.x -200</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="63675276217478" type="Player">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="X co-ordinate">villager.x + 40</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="1613052218410821" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="6250358969977134" type="prompt_5">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3731724831473763">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="5489707949943332" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="2050603906693269" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="5471221018696985" type="Player">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="X co-ordinate">villager.x -200</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="8787646682986712" type="Player">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="X co-ordinate">villager.x + 40</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="1948177617357033" type="prompt_1">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-3" name="Create object" sid="6374754634079054" type="System">
+                    <param id="0" name="Object to create">player_prompt</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">player.X + 20</param>
+                    <param id="3" name="Y">player.Y - 50</param>
+                </action>
+                <action id="0" name="Set text" sid="7739122754597353" type="player_prompt">
+                    <param id="0" name="Text">&quot;What&apos;s wrong&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="3258356900970458" type="prompt_1">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="584088557241604" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="7438564490647046" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-10" name="Add to" sid="863746564682876" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2843257114065492">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="880816698758941" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="4205579252261743" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="3290423982458433" type="Player">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="X co-ordinate">villager.x -200</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="9410417416625008" type="Player">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="X co-ordinate">villager.x + 40</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="136155879692205" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="7857613252196899" type="prompt_3">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-3" name="Create object" sid="4884823497252641" type="System">
+                    <param id="0" name="Object to create">player_prompt</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">player.X + 20</param>
+                    <param id="3" name="Y">player.Y - 50</param>
+                </action>
+                <action id="0" name="Set text" sid="7584810593566555" type="player_prompt">
+                    <param id="0" name="Text">&quot;What&apos;s wrong&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="2932720310436541" type="prompt_3">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="3784242236104447" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="9736077143252518" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5953400004085502">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="8006459027013577" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="7360940116112647" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="6377094755161073" type="Player">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="X co-ordinate">villager.x -200</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="5472065360728532" type="Player">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="X co-ordinate">villager.x + 40</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="62916746597393" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="4968304438671975" type="prompt_4">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-3" name="Create object" sid="4245847705114401" type="System">
+                    <param id="0" name="Object to create">player_prompt</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">player.X + 20</param>
+                    <param id="3" name="Y">player.Y - 50</param>
+                </action>
+                <action id="0" name="Set text" sid="6668421026627931" type="player_prompt">
+                    <param id="0" name="Text">&quot;What&apos;s wrong&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="8296201222392337" type="prompt_4">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="4658448198144737" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="1304051087392545" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3065976382422094">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="4971547216080704" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="7892888427667068" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="8607799814653487" type="Player">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="X co-ordinate">villager.x -200</param>
+                </condition>
+                <condition id="-1" name="Compare X" sid="7355889772568742" type="Player">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="X co-ordinate">villager.x + 40</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="8895856733224471" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="1906694943769959" type="prompt_5">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-3" name="Create object" sid="2075544674366151" type="System">
+                    <param id="0" name="Object to create">player_prompt</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">player.X + 20</param>
+                    <param id="3" name="Y">player.Y - 50</param>
+                </action>
+                <action id="0" name="Set text" sid="5469044843317826" type="player_prompt">
+                    <param id="0" name="Text">&quot;What&apos;s wrong&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="6300835140889575" type="prompt_5">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="2692323769257691" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="2195998557277686" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3913592134937739">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="4188912286547809" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="2524596456475003" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="5730543929587559" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="5525244835252761" type="prompt_1">
+                    <param id="0" name="Text">&quot;I&apos;ve lost my way..&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="236361674976303" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="6832471046132699" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4885321842550608">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="5535432210894734" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="4763500892371092" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="3483997199801144" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="5481808349034498" type="player_prompt">
+                    <param id="0" name="Text">&quot;How can I help?&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="9465138254330991" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="2725496208288841" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2408815913999152">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="2244994040269801" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="1928445884483304" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="1549313645745575" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="5603284220873155" type="prompt_1">
+                    <param id="0" name="Text">&quot;Distroy the shadow!&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="6022916288690464" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="9881709890506203" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">4</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2654523849765645">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="6280352398120855" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="1768552098822063" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="9932400906179728" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="8200483646190611" type="player_prompt">
+                    <param id="0" name="Text">&quot;Start ritual?&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="6046748531042999" type="prompt_1">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="9960510241521393" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="464891661839766" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2939586159111437">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="7359266904814707" type="Keyboard">
+                    <param id="0" name="Key">27 (Esc)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="7744815639595213" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">5</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="7026914175806243" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="6233219068893227" type="player_prompt">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="5979269509432614" type="prompt_1">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="3603134661272813" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="8475891854184256" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Add to" sid="4322965271620358" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4891168399305154">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="9176122609628644" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="7189163501875235" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">5</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="9702392561397725" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="3325122607658098" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Add to" sid="3901438686311828" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="3408507548106801" type="System">
+                    <param id="0" name="Layout">puzzle_1</param>
+                </action>
+                <action id="-16" name="Wait" sid="5833221593991531" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2713119715265652">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="4457864520595068" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="7767350618190236" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="350586959897733" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="1167287958220589" type="prompt_3">
+                    <param id="0" name="Text">&quot;I&apos;ve lost my way..&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="9132222202683693" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="1707649919389776" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7178272144108778">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="4832523807322568" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="7235606789191243" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="2871235557529478" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="9550126429121153" type="player_prompt">
+                    <param id="0" name="Text">&quot;How can I help?&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="7888197141661227" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="5779949964431528" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2740140512795498">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="2369441540953269" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="2120365061610959" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="4170097562604816" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="5599652344663584" type="prompt_3">
+                    <param id="0" name="Text">&quot;Distroy the shadow!&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="4974387962894346" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="7549171741262714" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">4</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8561791356596019">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="9881017194700869" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="8325385726393059" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="1182205434699897" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="8757352352489563" type="player_prompt">
+                    <param id="0" name="Text">&quot;Start ritual?&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="6799576207514588" type="prompt_3">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="1044638219735359" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="8864776062134932" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="254244832207403">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="7652489953246015" type="Keyboard">
+                    <param id="0" name="Key">27 (Esc)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="3812487407746882" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">5</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="1141414568749956" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="8786571563972807" type="player_prompt">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="7849915919449001" type="prompt_3">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="7060847800026383" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="8676058859418702" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Add to" sid="1053716794331361" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="416236574142117">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="8910337967686128" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="5665329440689963" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">5</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="1265626358341214" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="9088521002425598" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="7236823145437505" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="5106383915516148" type="System">
+                    <param id="0" name="Layout">puzzle_2</param>
+                </action>
+                <action id="-16" name="Wait" sid="4360752698130054" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2647719730543559">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="9455229319515347" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="4917188025706788" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="699435070073052" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="2456036685116074" type="prompt_4">
+                    <param id="0" name="Text">&quot;I&apos;ve lost my way..&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="436355515928638" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="8119103762147994" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6710064130864135">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="2059978112287262" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="4844582724437671" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="4243006555784952" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="1624462498345365" type="player_prompt">
+                    <param id="0" name="Text">&quot;How can I help?&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="7309114167359667" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="9737762963682889" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9112205343286743">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="5340843513673438" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="1595765374000026" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="116181225849462" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="8963585371160286" type="prompt_4">
+                    <param id="0" name="Text">&quot;Distroy the shadow!&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="4952095376807498" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="5893383736702577" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">4</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3577897486307661">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="953994528491586" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="4910372247196595" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="6257595590622643" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="7909752273619227" type="player_prompt">
+                    <param id="0" name="Text">&quot;Start ritual?&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="302121627658261" type="prompt_4">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="4039795206300647" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="8395679068753862" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3211194317139621">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="9093798636036706" type="Keyboard">
+                    <param id="0" name="Key">27 (Esc)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="5814456704509136" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">5</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="4059141057934621" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="2107084343342327" type="player_prompt">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="5137819238379449" type="prompt_4">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="9255748042977713" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="7595148050153414" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Add to" sid="6522694189133306" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8968959785551801">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="8833586075199541" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="2718069165966111" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">5</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="3381246632740804" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="6041202903502237" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Add to" sid="5506700418466461" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="3707358471720207" type="System">
+                    <param id="0" name="Layout">puzzle_1</param>
+                </action>
+                <action id="-16" name="Wait" sid="9271151944353608" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6509929990299723">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="4620315827065044" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="9465619755508176" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="6916281092913263" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="5826122263862661" type="prompt_5">
+                    <param id="0" name="Text">&quot;I&apos;ve lost my way..&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="5765119210847629" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="3638027105448681" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1530538169722858">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="340029875650982" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="6120731890158191" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="5807439952591594" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="5070479786285894" type="player_prompt">
+                    <param id="0" name="Text">&quot;How can I help?&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="4521230269379556" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="4046934833599466" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6782268988330953">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="6836390832046732" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="4759745721213053" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="6688428379131027" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="3541600830653638" type="prompt_5">
+                    <param id="0" name="Text">&quot;Distroy the shadow!&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="4989432286515236" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="3034959465055013" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">4</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2187732349748179">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="2056475068833764" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="4629003790253243" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="9735464476450092" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="5373199567599693" type="player_prompt">
+                    <param id="0" name="Text">&quot;Start ritual?&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="4948550058056748" type="prompt_5">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="1631646483256659" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="384482108869925" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6506653033286911">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="300969949978333" type="Keyboard">
+                    <param id="0" name="Key">27 (Esc)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="8187696055738727" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">5</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="4937164655848807" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="4960321624731806" type="player_prompt">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="1975388079336053" type="prompt_5">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="5496118305631566" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-9" name="Set value" sid="9431095347187994" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Add to" sid="7046121468918053" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9408710285026524">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="7476815529058795" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="1729126526966983" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">5</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="8408908914632569" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="6778435045437903" type="System">
+                    <param id="0" name="Variable">current_interaction</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="3934229248503376" type="System">
+                    <param id="0" name="Variable">talking</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="7703269941311673" type="System">
+                    <param id="0" name="Layout">puzzle_2</param>
+                </action>
+                <action id="-16" name="Wait" sid="8421347867959383" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5380535767059431">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="7289708410988878" type="Player">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="X co-ordinate">villager.x -201&#x0D;&#x0A;</param>
+                </condition>
+                <condition id="-1" inverted="1" name="Compare X" sid="5308227440760751" type="Player">
+                    <param id="0" name="Comparison">5</param>
+                    <param id="1" name="X co-ordinate">villager.x + 41&#x0D;&#x0A;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="5670885733145654" type="prompt_1">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5242854063122657">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="7960732156098587" type="Player">
+                    <param id="0" name="Object">exit</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="7649514147067822" type="System">
+                    <param id="0" name="Variable">current_level</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="-16" name="Wait" sid="9535355843325784" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="2024812862733409" type="System">
+                    <param id="0" name="Layout">splash_2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7167771896961161">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="172935398804539" type="Player">
+                    <param id="0" name="Object">exit</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="138714406987083" type="System">
+                    <param id="0" name="Variable">current_level</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="-16" name="Wait" sid="8528871746675664" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="4618881620010307" type="System">
+                    <param id="0" name="Layout">splash_3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1158866853665117">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="9625701248017381" type="Player">
+                    <param id="0" name="Object">exit</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="4859464922870147" type="System">
+                    <param id="0" name="Variable">current_level</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="-16" name="Wait" sid="7776023913002563" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="2988646063577665" type="System">
+                    <param id="0" name="Layout">splash_4</param>
+                </action>
+                <action id="-9" name="Set value" sid="2893960920166149" type="System">
+                    <param id="0" name="Variable">current_level</param>
+                    <param id="1" name="Value">4</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6370849280176944">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="2689481068444048" type="shadow">
+                    <param id="0" name="Object">villager</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="7790962008594697" type="System">
+                    <param id="0" name="Variable">ritual_won</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Fade" id="1" name="Start fade" sid="4931525188524447" type="shadow" />
+                <action id="0" name="Set text" sid="3303376518131017" type="prompt_1">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="5109307174428086" type="System">
+                    <param id="0" name="Variable">ritual_won</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7374528553138468">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="2272335295116557" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="7800104375132671" type="faith_hp">
+                    <param id="0" name="Text">&quot;Faith remaining: &quot; &amp; faith_score</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7929302408433836">
+            <conditions>
+                <condition id="0" name="On click" sid="5362904858724902" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="4539419799477536" type="System">
+                    <param id="0" name="Variable">current_level</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="5946724040815578" type="Player">
+                    <param id="0" name="Object">faith_obj</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

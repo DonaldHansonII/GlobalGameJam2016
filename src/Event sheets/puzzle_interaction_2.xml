@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>puzzle_interaction_2</name>
+    <events>
+        <variable constant="0" name="compare_value" sid="1953288796190797" static="0" type="number">-1</variable>
+        <variable constant="0" name="random_letter" sid="9507667609111478" static="0" type="text">&quot;&quot;</variable>
+        <variable constant="0" name="result_text" sid="4089624357985275" static="0" type="text"></variable>
+        <variable constant="0" name="current_text" sid="9245814404127" static="0" type="text">&quot;&quot;</variable>
+        <variable constant="0" name="compare_text" sid="7049175772976145" static="0" type="text">false</variable>
+        <variable constant="0" name="current_time2" sid="5712129636006086" static="0" type="number">10</variable>
+        <event-block sid="338528313679541">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="4438759760252959" type="System" />
+            </conditions>
+            <actions>
+                <action id="5" name="Push" sid="2465701287751554" type="question_array">
+                    <param id="0" name="Where">1</param>
+                    <param id="1" name="Value">&quot;The ones you lost&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="660054819232029" type="question_array">
+                    <param id="0" name="Where">1</param>
+                    <param id="1" name="Value">&quot;The ones you missed&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="2442436178193079" type="question_array">
+                    <param id="0" name="Where">1</param>
+                    <param id="1" name="Value">&quot;The ones you sadaw&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="5087257476969576" type="question_array">
+                    <param id="0" name="Where">1</param>
+                    <param id="1" name="Value">&quot;The ones you asd&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="7810228845742641" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;a&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="2368282700061186" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;b&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="7984380488849544" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;c&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="1965006562320196" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;d&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="6877999918280996" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;e&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="2493470521385485" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;f&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="4661811339171701" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;g&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="104517970326919" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;h&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="1729062137811109" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;i&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="2176257043365899" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;j&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="9042370982093286" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;k&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="1445066604807748" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;l&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="1543855976768074" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;m&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="5639250314979386" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;n&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="1398266320626543" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;o&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="3930953681054265" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;p&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="2366717683791463" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;q&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="2567601921788093" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;r&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="1171333321679125" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;s&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="650496715616723" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;t&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="769267021077397" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;u&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="5265834425451431" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;v&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="2946043558941171" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;w&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="1003023583136394" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;x&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="2004932822194103" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;y&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="5" name="Push" sid="7348652421429206" type="alpha_bet">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">&quot;z&quot;</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="9694814215859509" type="System">
+                    <param id="0" name="Variable">current_text</param>
+                    <param id="1" name="Value">question_array.Front</param>
+                </action>
+                <action id="-9" name="Set value" sid="6720533775851047" type="System">
+                    <param id="0" name="Variable">shuffle_puzzle</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7044526468254109">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="2809244936017857" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="8019617292333856" type="System">
+                    <param id="0" name="Variable">compare_text</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;false&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="3769117068325017" type="System">
+                    <param id="0" name="Variable">current_time2</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Set text" sid="6470148860298552" type="time_remaining">
+                    <param id="0" name="Text">&quot;Time remaining: &quot; &amp; current_time2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2368783109104472">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="7402439506011483" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">try_solution</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="9826488280444382" type="System">
+                    <param id="0" name="Variable">compare_text</param>
+                    <param id="1" name="Value">&quot;true&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7079961920824225">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="841042899485259" type="System">
+                    <param id="0" name="Variable">shuffle_puzzle</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="8400510180680913" type="System">
+                    <param id="0" name="Variable">random_letter</param>
+                    <param id="1" name="Value">alpha_bet.At(random(0, 23))</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1306690081043094">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="3128700581205912" type="System">
+                    <param id="0" name="Variable">compare_value</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">find(current_text, random_letter)</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="7827004004358616" type="System">
+                    <param id="0" name="Variable">shuffle_puzzle</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="3626246936179474" type="System">
+                    <param id="0" name="Variable">result_text</param>
+                    <param id="1" name="Value">replace(current_text, random_letter, &quot;_&quot;)</param>
+                </action>
+                <action id="-9" name="Set value" sid="336932436457028" type="System">
+                    <param id="0" name="Variable">random_letter</param>
+                    <param id="1" name="Value">alpha_bet.At(random(0, 23))</param>
+                </action>
+                <action id="-9" name="Set value" sid="3845208109555975" type="System">
+                    <param id="0" name="Variable">shuffle_puzzle</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="0" name="Set text" sid="2195792088575389" type="guess_text">
+                    <param id="0" name="Text">result_text</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6147817182475077">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="6096965428183098" type="System">
+                    <param id="0" name="Variable">compare_text</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;true&quot;</param>
+                </condition>
+                <condition id="0" name="Compare text" sid="8537172426308473" type="guess_text_box">
+                    <param id="0" name="Text">current_text</param>
+                    <param id="1" name="Case">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="1071349974090581" type="guess_text">
+                    <param id="0" name="Text">&quot;Ritual Complete&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="9603246847849556" type="System">
+                    <param id="0" name="Seconds">3.0</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="542059625674214" type="System">
+                    <param id="0" name="Layout">level_2</param>
+                </action>
+                <action id="-9" name="Set value" sid="30273811567717" type="System">
+                    <param id="0" name="Variable">compare_value</param>
+                    <param id="1" name="Value">-1</param>
+                </action>
+                <action id="-9" name="Set value" sid="2810700999430477" type="System">
+                    <param id="0" name="Variable">random_letter</param>
+                    <param id="1" name="Value">&quot;&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="2513015787989282" type="System">
+                    <param id="0" name="Variable">result_text</param>
+                    <param id="1" name="Value">&quot;&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="2293956956856622" type="System">
+                    <param id="0" name="Variable">current_text</param>
+                    <param id="1" name="Value">&quot;&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="7554258892080769" type="System">
+                    <param id="0" name="Variable">current_time2</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="-9" name="Set value" sid="6787962930054452" type="System">
+                    <param id="0" name="Variable">compare_text</param>
+                    <param id="1" name="Value">&quot;false&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
